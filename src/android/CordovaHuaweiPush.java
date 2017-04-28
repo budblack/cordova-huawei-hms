@@ -84,12 +84,17 @@ OnUpdateListener {
     }
 
     private void init(CallbackContext callbackContext) {
-        huaweiApiClient = new HuaweiApiClient.Builder(this.cordova.getActivity())
-        .addApi(HuaweiPush.PUSH_API)
-        .addConnectionCallbacks(this)
-        .addOnConnectionFailedListener(this)
-        .build();
-        huaweiApiClient.connect();
+        if (huaweiApiClient != null && huaweiApiClient.isConnected()) {
+
+        } else {
+            huaweiApiClient = new HuaweiApiClient.Builder(this.cordova.getActivity())
+                    .addApi(HuaweiPush.PUSH_API)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .build();
+            huaweiApiClient.connect();
+        }
+
         this.initCallback = callbackContext;
     }
 
