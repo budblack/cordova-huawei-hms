@@ -66,7 +66,7 @@ OnUpdateListener {
         super.initialize(cordova, webView);
         activity = cordova.getActivity();
         //如果是首次启动，并且点击的通知消息，则处理消息
-        if (openNotificationId != 0) {
+        if (openNotificationExtras!=null || openNotificationExtras!="") {
             notificationOpened(openNotificationId, openNotificationExtras);
         }
     }
@@ -215,12 +215,13 @@ OnUpdateListener {
                 @Override
                 public void run() {
                     instance.webView.loadUrl("javascript:" + js);
+                    CordovaHuaweiPush.openNotificationId = 0;
+                    CordovaHuaweiPush.openNotificationExtras = "";
                 }
             });
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        CordovaHuaweiPush.openNotificationId = 0;
-        CordovaHuaweiPush.openNotificationExtras = "";
+
     }
 }
