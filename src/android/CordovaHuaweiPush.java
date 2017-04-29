@@ -27,6 +27,7 @@ import com.huawei.hms.support.api.entity.push.TokenResp;
 
 import android.app.ProgressDialog;
 import android.content.IntentSender;
+import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -49,6 +50,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import android.app.Activity;
 
@@ -94,6 +97,9 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
     private static String rsaKeyPublic;
 
     private final int REQ_CODE_PAY = 4001;
+
+    //private Lock lock = new ReentrantLock();// 锁对象
+
     public CordovaHuaweiPush() {
         instance = this;
     }
@@ -130,7 +136,13 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
             aPayReq.merchantName = jsPayReq.getString("merchantName");
             aPayReq.extReserved = jsPayReq.getString("extReserved");
             aPayReq.productName = jsPayReq.getString("productName");
-
+            this.log("付款金额:" + aPayReq.amount);
+            this.log("商品名称:" + aPayReq.productName);
+            this.log("商品描述:" + aPayReq.productDesc);
+            this.log("商户名:" + aPayReq.merchantName);
+            this.log("订单号:" + aPayReq.requestId);
+            this.log("商户备注:" + aPayReq.extReserved);
+            this.log("开始付款操作");
             this.pay(callbackContext, aPayReq);
             return true;
         }
@@ -149,6 +161,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
             appId = configInfo.getString("appId");
             rsaKeyPrivate = configInfo.getString("rsaKeyPrivate");
             rsaKeyPublic = configInfo.getString("rsaKeyPublic");
+            this.log("基础配置hms");
             return true;
         }
 
@@ -159,7 +172,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
     }
 
 
-    private void log(String msg){
+    private void log(String msg) {
         if (instance == null) {
             return;
         }
@@ -167,26 +180,34 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
             JSONObject object = new JSONObject();
             object.put("log", msg);
             String format = "window.cordova.plugins.huaweipush.log(%s);";
+
             final String js = String.format(format, object.toString());
+
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     instance.webView.loadUrl("javascript:" + js);
                 }
             });
+
+
         } catch (JSONException e) {
             e.printStackTrace();
+        } finally {
+
         }
     }
 
 
     private void init(CallbackContext callbackContext) {
-        this.log("初始化hml连接");
+        this.log("初始化hms连接");
         if (huaweiApiClient != null && huaweiApiClient.isConnected()) {
 
         } else {
+            this.log("正在连接hms");
             huaweiApiClient = new HuaweiApiClient.Builder(this.cordova.getActivity())
                     .addApi(HuaweiPush.PUSH_API)
+                    .addApi(HuaweiPay.PAY_API)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
@@ -200,8 +221,10 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
 
         if (!huaweiApiClient.isConnected()) {
             // TODO:支付接口必须在连接成功以后调用
+            this.log("未连接到hms服务");
             return;
         }
+        this.log("已连接到hms服务");
         String productName = aPayReq.productName;
         String productDesc = aPayReq.productDesc;
         //DateFormat format = new java.text.SimpleDateFormat("yyyyMMddhhmmssSSS");
@@ -231,7 +254,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         this.log("计算后:" + sign);
         Log.i("rsa sign", "pre noSign: " + noSign + "  sign: " + sign);
 
-        PayReq payReq = new PayReq();
+        final PayReq payReq = new PayReq();
         // 商品名称 必填。 此名称将会在支付时显示给用户确认 注意：该字段中不能包含特殊字符，包括# " & / ? $ ^ *:) \ < > ,
         // |
         payReq.productName = (String) params.get(HwPayConstant.KEY_PRODUCTNAME);
@@ -309,13 +332,16 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         this.log("开始支付");
         showProgress("Authing, please wait...");
         PendingResult<PayResult> payResultPending = HuaweiPay.HuaweiPayApi.pay(huaweiApiClient, payReq);
-        this.log("设置支付回调");
+        this.log("设置调用支付回调");
+
         payResultPending.setResultCallback(new ResultCallback<PayResult>() {
             @Override
             public void onResult(PayResult payResult) {
+                instance.log("已运行调用支付回调方法");
                 cancleProgress();
                 Status status = payResult.getStatus();
                 if (PayStatusCodes.PAY_STATE_SUCCESS == status.getStatusCode()) {
+                    instance.log("调用支付界面成功(此时还未支付)");
                     try {
                         status.startResolutionForResult(activity, REQ_CODE_PAY);
                     } catch (IntentSender.SendIntentException e) {
@@ -323,6 +349,8 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
                     }
                 } else {
                     // TODO 根据返回码处理错误信息
+                    instance.log("支付失败:" + status.getStatusCode() + "，错误描述："  + status.getStatusMessage());
+
                 }
 
             }
