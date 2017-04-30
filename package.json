@@ -1,7 +1,7 @@
 {
   "name": "cordova-huawei-hms",
   "version": "0.3.1",
-  "description": "Cordova huawei Push\Pay Plugin",
+  "description": "Cordova huawei PushPay Plugin",
   "cordova": {
     "id": "cordova-huawei-hms",
     "platforms": [
