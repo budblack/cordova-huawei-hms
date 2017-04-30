@@ -1,6 +1,6 @@
-cordova.define("cordova-huawei-hms.CordovaHuaweiHMS", function (require, exports, module) {
-    var exec = require('cordova/exec');
 
+    var exec = require('cordova/exec');
+ 
     var HuaweiPush = function () { }
     HuaweiPush.prototype.isAndroidDevice = function () {
         return device.platform == 'Android';
@@ -41,13 +41,13 @@ cordova.define("cordova-huawei-hms.CordovaHuaweiHMS", function (require, exports
         if (this.isAndroidDevice()) {
             exec(success, error, "CordovaHuaweiHMS", "init", []);
         }
-    };
+    }
     //停止hms服务
     HuaweiPush.prototype.stop = function (success, error) {
         if (this.isAndroidDevice()) {
             exec(success, error, "CordovaHuaweiHMS", "stop", []);
         }
-    };
+    }
 
     //连接到hms服务
     HuaweiPush.prototype.connect = function (success, error) {
@@ -97,6 +97,6 @@ cordova.define("cordova-huawei-hms.CordovaHuaweiHMS", function (require, exports
 
     module.exports = new HuaweiPush();
 
-});
+ 
 
 
