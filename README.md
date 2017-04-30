@@ -1,3 +1,6 @@
+这是修改版的插件，添加了应用内支付。
+原作者地址：https://github.com/iflamed/cordova-huawei-push
+
 # cordova-huawei-hms
 The huawei push for cordova, hms sdk version, now only support android.
 
