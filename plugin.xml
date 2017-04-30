@@ -2,7 +2,7 @@
 <plugin id="cordova-huawei-hms" version="0.3.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-huawei-hms</name>
     <description>Cordova Huawei HMS Plugin</description>
-    <author>350561478@qq.com</author>
+    <author>350561378@qq.com</author>
     <license>MIT</license>
     <keywords>cordova,huawei,push,pay,huaweipush,hms</keywords>
 
