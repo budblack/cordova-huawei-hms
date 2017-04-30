@@ -52,13 +52,6 @@ public class HuaweiPushReceiver extends PushReceiver {
             CordovaHuaweiHMS.openNotificationExtras = extras.getString(BOUND_KEY.pushMsgKey);
             Log.w(CordovaHuaweiHMS.TAG, content);
             CordovaHuaweiHMS.notificationOpened(CordovaHuaweiHMS.openNotificationId,CordovaHuaweiHMS.openNotificationExtras);
-            /*
-            Intent launch = context.getPackageManager().getLaunchIntentForPackage(
-                context.getPackageName());
-            launch.addCategory(Intent.CATEGORY_LAUNCHER);
-            launch.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            context.startActivity(launch);
-            */
         }
         super.onEvent(context, event, extras);
     }
