@@ -64,7 +64,7 @@ HuaweiPush.prototype.isConnected = function (success, error) {
     }
 }
 
-//付款 productName:商品名 productDesc:商品描述 amount:金额 requestId:订单号 merchantName:商户名称 extReserved:商户保留信息,回调给商户服务端
+//付款 productName:商品名 productDesc:商品描述 amount:金额 requestId:订单号 merchantName:商户名称 extReserved:商户保留信息,回调给商户服务端,sign 签名
 HuaweiPush.prototype.pay = function (payReq,success, error) {
     if (this.isAndroidDevice()) {
         exec(success, error, "CordovaHuaweiPush", "pay", [payReq]);
