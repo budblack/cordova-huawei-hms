@@ -86,6 +86,15 @@ HuaweiPush.prototype.config = function (configInfo,success, error) {
         exec(success, error, "CordovaHuaweiPush", "config", [configInfo]);
     }
 }
+
+HuaweiPush.prototype.getSignData = function(payReq,success,error){
+    if (this.isAndroidDevice()) {
+        exec(success, error, "CordovaHuaweiPush", "getSignData", [payReq]);
+    }
+
+}
+
+
 module.exports = new HuaweiPush();
 
 });
