@@ -1,16 +1,16 @@
 {
-  "name": "cordova-huawei-push",
+  "name": "cordova-huawei-hms",
   "version": "0.3.1",
   "description": "Cordova huawei Push Plugin",
   "cordova": {
-    "id": "cordova-huawei-push",
+    "id": "cordova-huawei-hms",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iflamed/cordova-huawei-push.git"
+    "url": "git+https://github.com/waitaction/cordova-huawei-hms.git"
   },
   "keywords": [
     "cordova",
@@ -21,7 +21,7 @@
     "ecosystem:cordova",
     "hms"
   ],
-  "author": "iflamed",
+  "author": "waitaction",
   "license": "MIT",
   "engines": {
     "cordovaDependencies": {
@@ -34,7 +34,7 @@
     "cordova-plugin-device": ">=1.0.0"
   },
   "bugs": {
-    "url": "https://github.com/iflamed/cordova-huawei-push/issues"
+    "url": "https://github.com/waitaction/cordova-huawei-hms/issues"
   },
-  "homepage": "https://github.com/iflamed/cordova-huawei-push#readme"
+  "homepage": "https://github.com/waitaction/cordova-huawei-hms#readme"
 }

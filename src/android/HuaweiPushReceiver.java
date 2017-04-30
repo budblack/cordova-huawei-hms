@@ -3,7 +3,7 @@
  * See LICENSE.txt for this sample's licensing information.
  */
 
-package com.iflamed.huaweipush;
+package com.waitaction.huaweipush;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -22,17 +22,17 @@ public class HuaweiPushReceiver extends PushReceiver {
     public void onToken(Context context, String token, Bundle extras) {
         String belongId = extras.getString("belongId");
         String content = "get token and belongId successful, token = " + token + ",belongId = " + belongId;
-        CordovaHuaweiPush.token = token;
-        CordovaHuaweiPush.onTokenRegistered(token);
-        Log.w(CordovaHuaweiPush.TAG, content);
+        CordovaHuaweiHMS.token = token;
+        CordovaHuaweiHMS.onTokenRegistered(token);
+        Log.w(CordovaHuaweiHMS.TAG, content);
     }
 
     @Override
     public boolean onPushMsg(Context context, byte[] msg, Bundle bundle) {
         try {
             String content = "Receive a Push pass-by message： " + new String(msg, "UTF-8");
-            CordovaHuaweiPush.pushMsgReceived(new String(msg, "UTF-8"));
-            Log.w(CordovaHuaweiPush.TAG, content);
+            CordovaHuaweiHMS.pushMsgReceived(new String(msg, "UTF-8"));
+            Log.w(CordovaHuaweiHMS.TAG, content);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,10 +48,10 @@ public class HuaweiPushReceiver extends PushReceiver {
                 manager.cancel(notifyId);
             }
             String content = "receive extented notification message: " + extras.getString(BOUND_KEY.pushMsgKey);
-            CordovaHuaweiPush.openNotificationId = notifyId;
-            CordovaHuaweiPush.openNotificationExtras = extras.getString(BOUND_KEY.pushMsgKey);
-            Log.w(CordovaHuaweiPush.TAG, content);
-            CordovaHuaweiPush.notificationOpened(CordovaHuaweiPush.openNotificationId,CordovaHuaweiPush.openNotificationExtras);
+            CordovaHuaweiHMS.openNotificationId = notifyId;
+            CordovaHuaweiHMS.openNotificationExtras = extras.getString(BOUND_KEY.pushMsgKey);
+            Log.w(CordovaHuaweiHMS.TAG, content);
+            CordovaHuaweiHMS.notificationOpened(CordovaHuaweiHMS.openNotificationId,CordovaHuaweiHMS.openNotificationExtras);
             /*
             Intent launch = context.getPackageManager().getLaunchIntentForPackage(
                 context.getPackageName());
@@ -67,7 +67,7 @@ public class HuaweiPushReceiver extends PushReceiver {
     public void onPushState(Context context, boolean pushState) {
         try {
             String content = "The current push status： " + (pushState ? "Connected" : "Disconnected");
-            Log.w(CordovaHuaweiPush.TAG, content);
+            Log.w(CordovaHuaweiHMS.TAG, content);
         } catch (Exception e) {
             e.printStackTrace();
         }

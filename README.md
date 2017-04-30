@@ -1,9 +1,9 @@
-# cordova-huawei-push
+# cordova-huawei-hms
 The huawei push for cordova, hms sdk version, now only support android.
 
 ## Install
 ```shell
-cordova plugin add cordova-huawei-push --variable APPID=YOURAPPID --variable  PACKAGENAME=YOURPACKAGENAME --save
+cordova plugin add cordova-huawei-hms --variable APPID=YOURAPPID --variable  PACKAGENAME=YOURPACKAGENAME --save
 ```
 
 ## How to use
