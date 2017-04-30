@@ -7,6 +7,7 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import com.huawei.hms.api.HuaweiApiAvailability.OnUpdateListener;
 import com.huawei.hms.api.HuaweiApiClient;
 import com.huawei.hms.api.ConnectionResult;
@@ -20,10 +21,12 @@ import com.huawei.hms.support.api.push.HuaweiPush;
 import com.huawei.hms.support.api.push.TokenResult;
 import com.huawei.hms.support.api.client.PendingResult;
 import com.huawei.hms.support.api.client.ResultCallback;
+
 import android.content.IntentSender;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.lang.Thread;
 import java.security.InvalidKeyException;
@@ -79,8 +82,8 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
 
     private static String userId;
     private static String appId;
-    private static String rsaKeyPrivate;
-    private static String rsaKeyPublic;
+    //private static String rsaKeyPrivate;
+    //private static String rsaKeyPublic;
     private static boolean isDebug;
 
     private final int REQ_CODE_PAY = 4001;
@@ -121,6 +124,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
             aPayReq.merchantName = jsPayReq.getString("merchantName");
             aPayReq.extReserved = jsPayReq.getString("extReserved");
             aPayReq.productName = jsPayReq.getString("productName");
+            aPayReq.sign = jsPayReq.getString("sign");
             this.log("付款金额:" + aPayReq.amount);
             this.log("商品名称:" + aPayReq.productName);
             this.log("商品描述:" + aPayReq.productDesc);
@@ -146,8 +150,8 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
                 userId = configInfo.getString("userId");
                 appId = configInfo.getString("appId");
                 isDebug = configInfo.getBoolean("isDebug");
-                rsaKeyPrivate = configInfo.getString("rsaKeyPrivate");
-                rsaKeyPublic = configInfo.getString("rsaKeyPublic");
+                //rsaKeyPrivate = configInfo.getString("rsaKeyPrivate");
+                //rsaKeyPublic = configInfo.getString("rsaKeyPublic");
                 this.log("基础配置hms");
                 callbackContext.success();
             } catch (Exception ex) {
@@ -158,7 +162,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         }
 
         //获取支付签名前的连接字符串
-        if (action.equals("getSignData")){
+        if (action.equals("getSignData")) {
             JSONObject jsPayReq = args.getJSONObject(0);
             PayReq aPayReq = new PayReq();
             aPayReq.amount = jsPayReq.getString("amount");
@@ -180,7 +184,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
     }
 
 
-    private void getSignData(CallbackContext callbackContext,PayReq payReq) throws JSONException {
+    private void getSignData(CallbackContext callbackContext, PayReq payReq) throws JSONException {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put(HwPayConstant.KEY_MERCHANTID, userId);
         params.put(HwPayConstant.KEY_APPLICATIONID, appId);
@@ -192,7 +196,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         params.put(HwPayConstant.KEY_URLVER, "2");
         String noSign = CipherUtil.getSignData(params);
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("result" , noSign);
+        jsonObject.put("result", noSign);
         callbackContext.success(jsonObject);
     }
 
@@ -242,7 +246,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         this.initCallback = callbackContext;
     }
 
-    public void pay(CallbackContext callbackContext, PayReq aPayReq) {
+    public void pay(final CallbackContext callbackContext, PayReq aPayReq) {
 
         if (!huaweiApiClient.isConnected()) {
             // TODO:支付接口必须在连接成功以后调用
@@ -256,7 +260,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
 
         // 将需要参与签名的字段 存储。
         // 注意参与签名的字段必须同时也要上传给交易服务器，否则签名会匹配失败
-
+        /*
         Map<String, Object> params = new HashMap<String, Object>();
         params.put(HwPayConstant.KEY_MERCHANTID, userId);
         params.put(HwPayConstant.KEY_APPLICATIONID, appId);
@@ -273,6 +277,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         String sign = CipherUtil.rsaSign(noSign, rsaKeyPrivate);
         this.log("计算前:" + noSign);
         this.log("计算后:" + sign);
+*/
 
         final PayReq payReq = new PayReq();
         payReq.productName = productName;
@@ -283,7 +288,7 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
         payReq.requestId = requestId;
         payReq.sdkChannel = 1;
         payReq.urlVer = "2";
-        payReq.sign = sign;
+        payReq.sign = aPayReq.sign;
         payReq.merchantName = aPayReq.merchantName;
         payReq.serviceCatalog = "1";
         payReq.extReserved = aPayReq.extReserved;
@@ -301,10 +306,13 @@ public class CordovaHuaweiPush extends CordovaPlugin implements HuaweiApiClient.
                         status.startResolutionForResult(activity, REQ_CODE_PAY);
                     } catch (IntentSender.SendIntentException e) {
                         instance.log("启动华为支付失败:" + e.getMessage());
+                    } finally {
+                        callbackContext.success(status.getStatusCode());
                     }
                 } else {
                     // TODO 根据返回码处理错误信息
                     instance.log("调用支付失败:" + status.getStatusCode() + "，错误描述：" + status.getStatusMessage());
+                    callbackContext.error(status.getStatusMessage());
                 }
             }
         });
