@@ -21,7 +21,7 @@
         </config-file>
         <config-file parent="/manifest/application" target="AndroidManifest.xml">
             <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.NoActionBar" />
-            <meta-data android:name="com.huawei.hms.client.appid" android:value="$APPID"></meta-data>
+            <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=$APPID"></meta-data>
             <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:authorities="$PACKAGENAME.hms.update.provider" android:exported="false" android:grantUriPermissions="true"></provider>
             <receiver android:name="com.waitaction.huaweipush.HuaweiPushReceiver">
                 <intent-filter>
