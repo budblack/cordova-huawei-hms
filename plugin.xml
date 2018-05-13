@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-huawei-hms" version="0.3.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-huawei-hms" version="0.5.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-huawei-hms</name>
     <description>Cordova Huawei HMS Plugin</description>
     <author>350561378@qq.com</author>
     <license>MIT</license>
     <keywords>cordova,huawei,push,pay,huaweipush,hms</keywords>
-
     <preference name="APPID" />
     <preference name="PACKAGENAME" />
-
     <dependency id="cordova-plugin-device" />
     <js-module name="CordovaHuaweiHMS" src="www/cordova-huawei-hms.js">
         <clobbers target="cordova.plugins.huaweipush" />
@@ -20,32 +20,19 @@
             </feature>
         </config-file>
         <config-file parent="/manifest/application" target="AndroidManifest.xml">
-            <meta-data
-            android:name="hwc-theme"
-            android:value="androidhwext:style/Theme.Emui.NoActionBar" />
-            <meta-data
-                android:name="com.huawei.hms.client.appid"
-                android:value="$APPID">
-            </meta-data>
-            <provider
-                android:name="com.huawei.hms.update.provider.UpdateProvider"
-                android:authorities="$PACKAGENAME.hms.update.provider"
-                android:exported="false"
-                android:grantUriPermissions="true" >
-            </provider>
-            <receiver android:name="com.waitaction.huaweipush.HuaweiPushReceiver" >
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.NoActionBar" />
+            <meta-data android:name="com.huawei.hms.client.appid" android:value="$APPID"></meta-data>
+            <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:authorities="$PACKAGENAME.hms.update.provider" android:exported="false" android:grantUriPermissions="true"></provider>
+            <receiver android:name="com.waitaction.huaweipush.HuaweiPushReceiver">
                 <intent-filter>
                     <action android:name="com.huawei.android.push.intent.REGISTRATION" />
                     <action android:name="com.huawei.android.push.intent.RECEIVE" />
                     <action android:name="com.huawei.android.push.intent.CLICK" />
                     <action android:name="com.huawei.intent.action.PUSH_STATE" />
                 </intent-filter>
-                <meta-data
-                    android:name="CS_cloud_ablitity"
-                    android:value="successRateAnalytics">
-                </meta-data>
+                <meta-data android:name="CS_cloud_ablitity" android:value="successRateAnalytics"></meta-data>
             </receiver>
-            <receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver" >
+            <receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver">
                 <intent-filter>
                     <action android:name="com.huawei.intent.action.PUSH" />
                 </intent-filter>
@@ -59,8 +46,7 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.WAKE_LOCK" />
         </config-file>
-        <framework src="src/android/huaweipush.gradle" custom="true" type="gradleReference" />
-        <resource-file src="aars/HMS-SDK-2.4.0.300.aar" target="aars/HMS-SDK-2.4.0.300.aar" />
+        <source-file src="src/android/lib/HMS_SDK_2.6.0.301.jar" target-dir="libs"/>
         <source-file src="src/android/CordovaHuaweiHMS.java" target-dir="src/com/waitaction/huaweipush/" />
         <source-file src="src/android/HuaweiPushReceiver.java" target-dir="src/com/waitaction/huaweipush/" />
     </platform>

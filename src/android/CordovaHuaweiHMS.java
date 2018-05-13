@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.huawei.hms.api.HuaweiApiAvailability.OnUpdateListener;
+//import com.huawei.hms.api.HuaweiApiAvailability.OnUpdateListener;
 import com.huawei.hms.api.HuaweiApiClient;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.support.api.client.Status;
@@ -48,8 +48,7 @@ import android.app.Activity;
 
 
 public class CordovaHuaweiHMS extends CordovaPlugin implements HuaweiApiClient.ConnectionCallbacks,
-        HuaweiApiClient.OnConnectionFailedListener,
-        OnUpdateListener {
+        HuaweiApiClient.OnConnectionFailedListener {
     public static HuaweiApiClient huaweiApiClient;
     // 接收Push消息
     public static final int RECEIVE_PUSH_MSG = 0x100;
@@ -221,7 +220,8 @@ public class CordovaHuaweiHMS extends CordovaPlugin implements HuaweiApiClient.C
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
-            huaweiApiClient.connect();
+            //huaweiApiClient.connect();
+            huaweiApiClient.connect(this.cordova.getActivity());
         }
 
         this.initCallback = callbackContext;
@@ -290,9 +290,7 @@ public class CordovaHuaweiHMS extends CordovaPlugin implements HuaweiApiClient.C
         this.getToken();
     }
 
-    @Override
-    public void onUpdateFailed(ConnectionResult result) {
-    }
+
 
 
     private void getToken() {
