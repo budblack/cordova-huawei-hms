@@ -1,48 +1,46 @@
-这是修改版的插件，添加了应用内支付。
-原作者地址：https://github.com/iflamed/cordova-huawei-push
+华为推送 HMS SDK，由于华为应用市场审核应用必须使用最新版的hms sdk，为方便区分，插件版本与HMS SDK版本号保持一致。
 
 # cordova-huawei-hms
-The huawei push for cordova, hms sdk version, now only support android.
-
-## Install
+华为推送cordova插件，目前仅适配安卓手机
+## 安装
 ```shell
 cordova plugin add https://github.com/waitaction/cordova-huawei-hms.git --variable APPID=YOURAPPID --variable  PACKAGENAME=YOURPACKAGENAME --save
 ```
 
-## How to use
+## 怎么用
 
-### Init the hms connection
+### 初始 hms 连接
 
 ```javascript
 cordova.plugins.huaweipush.init();
 ```
 
-### Token Registered
+### 获取设备token
 
 ```javascript
 document.addEventListener('huaweipush.receiveRegisterResult', function (event) {
-    console.log(event) // event will contain the device token value
+    console.log(event) // 设备token包含在event对像
 }.bind(this), false);
 ```
-You can get the token value by `event.token`
+你可以使用 `event.token` 获取到设备token
 
-### Stop the push service
+### 停止推送服务
 
 ```javascript
 cordova.plugins.huaweipush.stop();
 ```
 
-### When notification clicked to open the app
+### 接收到推送通知时，点击通知栏打开应用后会触发下面的事件
 
 ```javascript
 document.addEventListener('huaweipush.notificationOpened', function (event) {
-    console.log(event) // the event will contain a extras key, which contain the data what you send
+    console.log(event) // event包含了你自定义的额外字段的数据
 }.bind(this), false)
 ```
 
-### When push message arrived at the app open status
+### 接收透传通知
 ```javascript
 document.addEventListener('huaweipush.pushMsgReceived', function (event) {
-    console.log(event) // the event will contain a extras key, which contain the data what you send
+    console.log(event) // event包含了你自定义的额外字段的数据
 }.bind(this), false)
 ```
