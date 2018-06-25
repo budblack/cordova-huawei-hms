@@ -46,7 +46,8 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.WAKE_LOCK" />
         </config-file>
-        <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>
+        <source-file src="src/android/lib/HMSAgent_2.6.1.301.jar" target-dir="libs"/>
+        <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>    
         <source-file src="src/android/CordovaHuaweiHMS.java" target-dir="src/com/waitaction/huaweipush/" />
         <source-file src="src/android/HuaweiPushReceiver.java" target-dir="src/com/waitaction/huaweipush/" />
     </platform>
