@@ -8,9 +8,9 @@
 华为推送cordova插件，目前仅适配安卓手机
 ## 安装
 ```shell
-cordova plugin add https://github.com/waitaction/cordova-huawei-hms.git --variable APPID=YOURAPPID --variable  PACKAGENAME=YOURPACKAGENAME --save
+cordova plugin add https://github.com/waitaction/cordova-huawei-hms.git --variable APPID=YOURAPPID --variable  PACKAGENAME=YOURPACKAGENAME 
 ```
-
+例如`cordova plugin add https://github.com/waitaction/cordova-huawei-hms.git  --variable APPID=10111111 --variable  PACKAGENAME=com.lifang123.www`
 ## 怎么用
 
 ### 初始 hms 连接
