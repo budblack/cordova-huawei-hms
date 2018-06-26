@@ -46,9 +46,79 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.WAKE_LOCK" />
         </config-file>
-        <source-file src="src/android/lib/HMSAgent_2.6.1.301.jar" target-dir="libs"/>
-        <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>    
+        <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>
         <source-file src="src/android/CordovaHuaweiHMS.java" target-dir="src/com/waitaction/huaweipush/" />
         <source-file src="src/android/HuaweiPushReceiver.java" target-dir="src/com/waitaction/huaweipush/" />
+        <!--hms agent code-->
+        <!--com/huawei/android/hms/agent/common/handler/-->
+        <source-file src="src/android/com/huawei/android/hms/agent/common/handler/CheckUpdateHandler.java" target-dir="src/com/huawei/android/hms/agent/common/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/handler/ConnectHandler.java" target-dir="src/com/huawei/android/hms/agent/common/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/handler/ICallbackCode.java" target-dir="src/com/huawei/android/hms/agent/common/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/handler/ICallbackResult.java" target-dir="src/com/huawei/android/hms/agent/common/handler/" />
+        <!--com/huawei/android/hms/agent/common/-->
+        <source-file src="src/android/com/huawei/android/hms/agent/common/ActivityMgr.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/ApiClientMgr.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/BaseAgentActivity.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/BaseApiAgent.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/CallbackCodeRunnable.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/CallbackResultRunnable.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/CheckUpdateApi.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/EmptyConnectCallback.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/HMSAgentActivity.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/HMSAgentLog.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/IActivityDestroyedCallback.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/IActivityPauseCallback.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/IActivityResumeCallback.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/IClientConnectCallback.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/INoProguard.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/IOUtils.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/StrUtils.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/ThreadUtil.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/common/UIUtils.java" target-dir="src/com/huawei/android/hms/agent/common/" />
+        <!--com/huawei/android/hms/agent/hwid/handler-->
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/handler/SignInHandler.java" target-dir="src/com/huawei/android/hms/agent/hwid/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/handler/SignOutHandler.java" target-dir="src/com/huawei/android/hms/agent/hwid/handler/" />
+        <!--com/huawei/android/hms/agent/hwid-->
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/CheckSignInApi.java" target-dir="src/com/huawei/android/hms/agent/hwid/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/HMSSignInAgentActivity.java" target-dir="src/com/huawei/android/hms/agent/hwid/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/SignInApi.java" target-dir="src/com/huawei/android/hms/agent/hwid/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/hwid/SignOutApi.java" target-dir="src/com/huawei/android/hms/agent/hwid/" />
+        <!--com/huawei/android/hms/agent/pay-->
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/GetPayOrderApi.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/GetProductDetailsApi.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/GetPurchaseInfoApi.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/HMSPayAgentActivity.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/HMSPMSPayAgentActivity.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/PayApi.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/PaySignUtil.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/ProductPayApi.java" target-dir="src/com/huawei/android/hms/agent/pay/" />
+        <!--com/huawei/android/hms/agent/pay/handler-->
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/handler/GetOrderHandler.java" target-dir="src/com/huawei/android/hms/agent/pay/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/handler/GetProductDetailsHandler.java" target-dir="src/com/huawei/android/hms/agent/pay/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/handler/GetPurchaseInfoHandler.java" target-dir="src/com/huawei/android/hms/agent/pay/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/handler/PayHandler.java" target-dir="src/com/huawei/android/hms/agent/pay/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/pay/handler/ProductPayHandler.java" target-dir="src/com/huawei/android/hms/agent/pay/handler/" />
+        <!--com/huawei/android/hms/agent/push-->
+        <source-file src="src/android/com/huawei/android/hms/agent/push/DeleteTokenApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/EnableReceiveNormalMsgApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/EnableReceiveNotifyMsgApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/GetPushStateApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/GetTokenApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/QueryAgreementApi.java" target-dir="src/com/huawei/android/hms/agent/push/" />
+        <!--com/huawei/android/hms/agent/push/handler-->
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/DeleteTokenHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/EnableReceiveNormalMsgHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/EnableReceiveNotifyMsgHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/GetPushStateHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/GetTokenHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/push/handler/QueryAgreementHandler.java" target-dir="src/com/huawei/android/hms/agent/push/handler/" />
+        <!--com/huawei/android/hms/agent/sns-->
+        <source-file src="src/android/com/huawei/android/hms/agent/sns/GetMsgSendIntentApi.java" target-dir="src/com/huawei/android/hms/agent/sns/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/sns/GetUiIntentApi.java" target-dir="src/com/huawei/android/hms/agent/sns/" />
+        <!--com/huawei/android/hms/agent/sns/handler-->
+        <source-file src="src/android/com/huawei/android/hms/agent/sns/handler/GetMsgSendIntentHandler.java" target-dir="src/com/huawei/android/hms/agent/sns/Handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/sns/handler/GetUiIntentHandler.java" target-dir="src/com/huawei/android/hms/agent/sns/Handler/" />
+        <!--com/huawei/android/hms/agent/-->
+        <source-file src="src/android/com/huawei/android/hms/agent/HMSAgent.java" target-dir="src/com/huawei/android/hms/agent/" />
     </platform>
 </plugin>
