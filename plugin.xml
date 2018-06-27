@@ -140,13 +140,13 @@
         <!--values-->
         <source-file src="src/android/res/values/hms_values.xml" target-dir="res/values" />
         <!--values-am-->
-        <source-file src="src/android/res/values/hms_values-am.xml" target-dir="res/values-am" />
+        <source-file src="src/android/res/values-am/hms_values-am.xml" target-dir="res/values-am" />
         <!--values-ar-->
-        <source-file src="src/android/res/values/hms_values-ar.xml" target-dir="res/values-ar" />
+        <source-file src="src/android/res/values-ar/hms_values-ar.xml" target-dir="res/values-ar" />
         <!--values-as-->
-        <source-file src="src/android/res/values/hms_values-as.xml" target-dir="res/values-as" />
+        <source-file src="src/android/res/values-as/hms_values-as.xml" target-dir="res/values-as" />
         <!--values-az-->
-        <source-file src="src/android/res/values/hms_values-az.xml" target-dir="res/values-az" />
+        <source-file src="src/android/res/values-az/hms_values-az.xml" target-dir="res/values-az" />
         <!--values-b+jv+Latn-->
         <source-file src="src/android/res/values-b+jv+Latn/hms_values-b+jv+Latn.xml" target-dir="res/values-b+jv+Latn" />
         <!--values-b+sr+Latn-->
