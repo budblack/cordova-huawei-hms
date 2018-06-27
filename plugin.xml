@@ -23,7 +23,7 @@
             <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.NoActionBar" />
             <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=$APPID"></meta-data>
             <meta-data android:name="com.huawei.hms.client.cpid" android:value="cpid=$CPID"></meta-data>
-         
+
             <activity android:name="com.huawei.hms.activity.BridgeActivity" android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent">
                 <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent" />
             </activity>
@@ -38,7 +38,7 @@
             </activity>
             <activity android:name="com.huawei.android.hms.agent.pay.HMSPayAgentActivity" android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent">
                 <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent" />
-            </activity> 
+            </activity>
             <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:authorities="$PACKAGENAME.hms.update.provider" android:exported="false" android:grantUriPermissions="true"></provider>
             <provider android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider" android:authorities="$PACKAGENAME.updateSdk.fileProvider" android:exported="false" android:grantUriPermissions="true">
             </provider>
@@ -70,6 +70,235 @@
         <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>
         <source-file src="src/android/CordovaHuaweiHMS.java" target-dir="src/com/waitaction/huaweipush/" />
         <source-file src="src/android/HuaweiPushReceiver.java" target-dir="src/com/waitaction/huaweipush/" />
+
+        <!--res-->
+        <!--drawable-->
+        <source-file src="src/res/drawable/hms_game_buoy_hide_shape_red.xml" target-dir="res/drawable" />
+        <source-file src="src/res/drawable/hms_game_buoy_hide_shape.xml" target-dir="res/drawable" />
+        <source-file src="src/res/drawable/hms_game_hide_float_top.9.png" target-dir="res/drawable" />
+        <source-file src="src/res/drawable/hms_game_hide_guide.gif" target-dir="res/drawable" />
+        <source-file src="src/res/drawable/upsdk_third_download_bg.xml" target-dir="res/drawable" />
+        <source-file src="src/res/drawable/upsdk_update_all_button.xml" target-dir="res/drawable" />
+        <!--drawable-hdpi-1208x720-v4-->
+        <source-file src="src/res/drawable-hdpi-1208x720-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-hdpi-1208x720-v4" />
+        <!--drawable-hdpi-v4-->
+        <source-file src="src/res/drawable-hdpi-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="src/res/drawable-hdpi-v4/hms_game_buoy_red_dot" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="src/res/drawable-hdpi-v4/hms_game_hide_float_eye_off_gray.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="src/res/drawable-hdpi-v4/hms_game_icon.png" target-dir="res/drawable-hdpi-v4" />
+        <!--drawable-xhdpi-v4-->
+        <source-file src="src/res/drawable-xhdpi-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/hms_game_buoy_red_dot.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/hms_game_hide_float_eye_off_gray.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/hms_game_icon.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/upsdk_btn_emphasis_normal_layer.9.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/upsdk_cancel_normal.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="src/res/drawable-xhdpi-v4/upsdk_cancel_pressed.png" target-dir="res/drawable-xhdpi-v4" />
+        <!--drawable-xxhdpi-v4-->
+        <source-file src="src/res/drawable-xxhdpi-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/hms_game_buoy_red_dot.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/hms_game_hide_float_eye_off_gray.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/hms_game_icon.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/upsdk_btn_emphasis_normal_layer.9.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/upsdk_cancel_normal.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="src/res/drawable-xxhdpi-v4/upsdk_cancel_pressed.png" target-dir="res/drawable-xxhdpi-v4" />
+        <!--drawable-xxxhdpi-v4-->
+        <source-file src="src/res/drawable-xxxhdpi-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/hms_game_buoy_red_dot.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/hms_game_hide_float_eye_off_gray.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/hms_game_icon.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/upsdk_btn_emphasis_normal_layer.9.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/upsdk_cancel_normal.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <source-file src="src/res/drawable-xxxhdpi-v4/upsdk_cancel_pressed.png" target-dir="res/drawable-xxxhdpi-v4" />
+        <!--layout-->
+        <source-file src="src/res/layout/hms_download_progress.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hms_game_buoy_hide_guide_dialog.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hms_game_buoy_hide_notice.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hms_game_buoy_window_small.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hms_game_top_async_login.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_buttons_layout.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_icons_layout.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_layout2.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_layout4.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_layout7.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/hwpush_layout8.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/upsdk_app_dl_progress_dialog.xml" target-dir="res/layout" />
+        <source-file src="src/res/layout/upsdk_ota_update_view.xml" target-dir="res/layout" />
+        <!--layout-ar-->
+        <source-file src="src/res/layout-ar/upsdk_app_dl_progress_dialog.xml" target-dir="res/layout-ar" />
+        <source-file src="src/res/layout-ar/upsdk_ota_update_view.xml" target-dir="res/layout-ar" />
+        <!--layout-fa-->
+        <source-file src="src/res/layout-fa/upsdk_app_dl_progress_dialog.xml" target-dir="res/layout-fa" />
+        <source-file src="src/res/layout-fa/upsdk_ota_update_view.xml" target-dir="res/layout-fa" />
+        <!--layout-iw-->
+        <source-file src="src/res/layout-iw/upsdk_app_dl_progress_dialog.xml" target-dir="res/layout-iw" />
+        <source-file src="src/res/layout-iw/upsdk_ota_update_view.xml" target-dir="res/layout-iw" />
+        <!--layout-land-->
+        <source-file src="src/res/layout-land/hms_game_buoy_hide_guide_dialog.xml" target-dir="res/layout-land" />
+        <!--layout-ur-->
+        <source-file src="src/res/layout-ur/upsdk_app_dl_progress_dialog.xml" target-dir="res/layout-ur" />
+        <source-file src="src/res/layout-ur/upsdk_ota_update_view.xml" target-dir="res/layout-ur" />
+        <!--values-->
+        <source-file src="src/res/values/hms_values.xml" target-dir="res/values" />
+        <!--values-am-->
+        <source-file src="src/res/values/hms_values-am.xml" target-dir="res/values-am" />
+        <!--values-ar-->
+        <source-file src="src/res/values/hms_values-ar.xml" target-dir="res/values-ar" />
+        <!--values-as-->
+        <source-file src="src/res/values/hms_values-as.xml" target-dir="res/values-as" />
+        <!--values-az-->
+        <source-file src="src/res/values/hms_values-az.xml" target-dir="res/values-az" />
+        <!--values-b+jv+Latn-->
+        <source-file src="src/res/values-b+jv+Latn/hms_values-b+jv+Latn.xml" target-dir="res/values-b+jv+Latn" />
+        <!--values-b+sr+Latn-->
+        <source-file src="src/res/values-b+sr+Latn/hms_values-b+sr+Latn.xml" target-dir="res/values-b+sr+Latn" />
+        <!--values-be-->
+        <source-file src="src/res/values-be/hms_values-be.xml" target-dir="res/values-be" />
+        <!--values-bg-->
+        <source-file src="src/res/values-bg/hms_values-bg.xml" target-dir="res/values-bg" />
+        <!--values-bn-->
+        <source-file src="src/res/values-bn/hms_values-bn.xml" target-dir="res/values-bn" />
+        <!--values-bo-rCN-->
+        <source-file src="src/res/values-bo-rCN/hms_values-bo-rCN.xml" target-dir="res/values-bo-rCN" />
+        <!--values-bs-->
+        <source-file src="src/res/values-bs/hms_values-bs.xml" target-dir="res/values-bs" />
+        <!--values-ca-->
+        <source-file src="src/res/values-ca/hms_values-ca.xml" target-dir="res/values-ca" />
+        <!--values-cs-->
+        <source-file src="src/res/values-cs/hms_values-cs.xml" target-dir="res/values-cs" />
+        <!--values-da-->
+        <source-file src="src/res/values-da/hms_values-da.xml" target-dir="res/values-da" />
+        <!--values-de-->
+        <source-file src="src/res/values-de/hms_values-de.xml" target-dir="res/values-de" />
+        <!--values-el-->
+        <source-file src="src/res/values-el/hms_values-el.xml" target-dir="res/values-el" />
+        <!--values-en-rGB-->
+        <source-file src="src/res/values-en-rGB/hms_values-en-rGB.xml" target-dir="res/values-en-rGB" />
+        <!--values-es-->
+        <source-file src="src/res/values-es/hms_values-es.xml" target-dir="res/values-es" />
+        <!--values-es-rUS-->
+        <source-file src="src/res/values-es-rUS/hms_values-es-rUS.xml" target-dir="res/values-es-rUS" />
+        <!--values-et-->
+        <source-file src="src/res/values-et/hms_values-et.xml" target-dir="res/values-et" />
+        <!--values-eu-->
+        <source-file src="src/res/values-eu/hms_values-eu.xml" target-dir="res/values-eu" />
+        <!--values-fa-->
+        <source-file src="src/res/values-fa/hms_values-fa.xml" target-dir="res/values-fa" />
+        <!--values-fi-->
+        <source-file src="src/res/values-fi/hms_values-fi.xml" target-dir="res/values-fi" />
+        <!--values-fr-->
+        <source-file src="src/res/values-fr/hms_values-fr.xml" target-dir="res/values-fr" />
+        <!--values-gl-->
+        <source-file src="src/res/values-gl/hms_values-gl.xml" target-dir="res/values-gl" />
+        <!--values-gu-->
+        <source-file src="src/res/values-gu/hms_values-gu.xml" target-dir="res/values-gu" />
+        <!--values-hi-->
+        <source-file src="src/res/values-hi/hms_values-hi.xml" target-dir="res/values-hi" />
+        <!--values-hr-->
+        <source-file src="src/res/values-hr/hms_values-hr.xml" target-dir="res/values-hr" />
+        <!--values-hu-->
+        <source-file src="src/res/values-hu/hms_values-hu.xml" target-dir="res/values-hu" />
+        <!--values-in-->
+        <source-file src="src/res/values-in/hms_values-in.xml" target-dir="res/values-in" />
+        <!--values-it-->
+        <source-file src="src/res/values-it/hms_values-it.xml" target-dir="res/values-it" />
+        <!--values-iw-->
+        <source-file src="src/res/values-iw/hms_values-iw.xml" target-dir="res/values-iw" />
+        <!--values-ja-->
+        <source-file src="src/res/values-ja/hms_values-ja.xml" target-dir="res/values-ja" />
+        <!--values-ka-->
+        <source-file src="src/res/values-ka/hms_values-ka.xml" target-dir="res/values-ka" />
+        <!--values-kk-->
+        <source-file src="src/res/values-kk/hms_values-kk.xml" target-dir="res/values-kk" />
+        <!--values-km-->
+        <source-file src="src/res/values-km/hms_values-km.xml" target-dir="res/values-km" />
+        <!--values-kn-->
+        <source-file src="src/res/values-kn/hms_values-kn.xml" target-dir="res/values-kn" />
+        <!--values-ko-->
+        <source-file src="src/res/values-ko/hms_values-ko.xml" target-dir="res/values-ko" />
+        <!--values-lo-->
+        <source-file src="src/res/values-lo/hms_values-lo.xml" target-dir="res/values-lo" />
+        <!--values-lt-->
+        <source-file src="src/res/values-lt/hms_values-lt.xml" target-dir="res/values-lt" />
+        <!--values-lv-->
+        <source-file src="src/res/values-lv/hms_values-lv.xml" target-dir="res/values-lv" />
+        <!--values-mai-->
+        <source-file src="src/res/values-mai/hms_values-mai.xml" target-dir="res/values-mai" />
+        <!--values-mi-->
+        <source-file src="src/res/values-mi/hms_values-mi.xml" target-dir="res/values-mi" />
+        <!--values-mk-->
+        <source-file src="src/res/values-mk/hms_values-mk.xml" target-dir="res/values-mk" />
+        <!--values-ml-->
+        <source-file src="src/res/values-ml/hms_values-ml.xml" target-dir="res/values-ml" />
+        <!--values-mn-->
+        <source-file src="src/res/values-mn/hms_values-mn.xml" target-dir="res/values-mn" />
+        <!--values-mr-->
+        <source-file src="src/res/values-mr/hms_values-mr.xml" target-dir="res/values-mr" />
+        <!--values-ms-->
+        <source-file src="src/res/values-ms/hms_values-ms.xml" target-dir="res/values-ms" />
+        <!--values-my-rMM-->
+        <source-file src="src/res/values-my-rMM/hms_values-my-rMM.xml" target-dir="res/values-my-rMM" />
+        <!--values-my-rZG-->
+        <source-file src="src/res/values-my-rZG/hms_values-my-rZG.xml" target-dir="res/values-my-rZG" />
+        <!--values-nb-->
+        <source-file src="src/res/values-nb/hms_values-nb.xml" target-dir="res/values-nb" />
+        <!--values-ne-->
+        <source-file src="src/res/values-ne/hms_values-ne.xml" target-dir="res/values-ne" />
+        <!--values-nl-->
+        <source-file src="src/res/values-nl/hms_values-nl.xml" target-dir="res/values-nl" />
+        <!--values-or-->
+        <source-file src="src/res/values-or/hms_values-or.xml" target-dir="res/values-or" />
+        <!--values-pa-->
+        <source-file src="src/res/values-pa/hms_values-pa.xml" target-dir="res/values-pa" />
+        <!--values-pl-->
+        <source-file src="src/res/values-pl/hms_values-pl.xml" target-dir="res/values-pl" />
+        <!--values-pt-->
+        <source-file src="src/res/values-pt/hms_values-pt.xml" target-dir="res/values-pt" />
+        <!--values-pt-rPT-->
+        <source-file src="src/res/values-pt-rPT/hms_values-pt-rPT.xml" target-dir="res/values-pt-rPT" />
+        <!--values-ro-->
+        <source-file src="src/res/values-ro/hms_values-ro.xml" target-dir="res/values-ro" />
+        <!--values-ru-->
+        <source-file src="src/res/values-ru/hms_values-ru.xml" target-dir="res/values-ru" />
+        <!--values-si-->
+        <source-file src="src/res/values-si/hms_values-si.xml" target-dir="res/values-si" />
+        <!--values-sk-->
+        <source-file src="src/res/values-sk/hms_values-sk.xml" target-dir="res/values-sk" />
+        <!--values-sl-->
+        <source-file src="src/res/values-sl/hms_values-sl.xml" target-dir="res/values-sl" />
+        <!--values-sr-->
+        <source-file src="src/res/values-sr/hms_values-sr.xml" target-dir="res/values-sr" />
+        <!--values-sv-->
+        <source-file src="src/res/values-sv/hms_values-sv.xml" target-dir="res/values-sv" />
+        <!--values-sw-->
+        <source-file src="src/res/values-sw/hms_values-sw.xml" target-dir="res/values-sw" />
+        <!--values-ta-->
+        <source-file src="src/res/values-ta/hms_values-ta.xml" target-dir="res/values-ta" />
+        <!--values-te-->
+        <source-file src="src/res/values-te/hms_values-te.xml" target-dir="res/values-te" />
+        <!--values-th-->
+        <source-file src="src/res/values-th/hms_values-th.xml" target-dir="res/values-th" />
+        <!--values-tl-->
+        <source-file src="src/res/values-tl/hms_values-tl.xml" target-dir="res/values-tl" />
+        <!--values-tr-->
+        <source-file src="src/res/values-tr/hms_values-tr.xml" target-dir="res/values-tr" />
+        <!--values-uk-->
+        <source-file src="src/res/values-uk/hms_values-uk.xml" target-dir="res/values-uk" />
+        <!--values-ur-->
+        <source-file src="src/res/values-ur/hms_values-ur.xml" target-dir="res/values-ur" />
+        <!--values-uz-->
+        <source-file src="src/res/values-uz/hms_values-uz.xml" target-dir="res/values-uz" />
+        <!--values-vi-->
+        <source-file src="src/res/values-vi/hms_values-vi.xml" target-dir="res/values-vi" />
+        <!--values-zh-rCN-->
+        <source-file src="src/res/values-zh-rCN/hms_values-zh-rCN.xml" target-dir="res/values-zh-rCN" />
+        <!--values-zh-rHK-->
+        <source-file src="src/res/values-zh-rHK/hms_values-zh-rHK.xml" target-dir="res/values-zh-rHK" />
+        <!--values-zh-rTW-->
+        <source-file src="src/res/values-zh-rTW/hms_values-zh-rTW.xml" target-dir="res/values-zh-rTW" />
+        <!--values-zz-rZX-->
+        <source-file src="src/res/values-zz-rZX/hms_values-zz-rZX.xml" target-dir="res/values-zz-rZX" />
+
         <!--hms agent code-->
         <!--com/huawei/android/hms/agent/common/handler/-->
         <source-file src="src/android/com/huawei/android/hms/agent/common/handler/CheckUpdateHandler.java" target-dir="src/com/huawei/android/hms/agent/common/handler/" />
