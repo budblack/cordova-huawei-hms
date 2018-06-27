@@ -8,6 +8,7 @@
     <license>MIT</license>
     <keywords>cordova,huawei,push,pay,huaweipush,hms</keywords>
     <preference name="APPID" />
+    <preference name="CPID" />
     <preference name="PACKAGENAME" />
     <dependency id="cordova-plugin-device" />
     <js-module name="CordovaHuaweiHMS" src="www/cordova-huawei-hms.js">
