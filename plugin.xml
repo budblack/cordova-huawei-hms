@@ -297,6 +297,8 @@
         <source-file src="src/android/res/values-zh-rTW/hms_values-zh-rTW.xml" target-dir="res/values-zh-rTW" />
         <!--values-zz-rZX-->
         <source-file src="src/android/res/values-zz-rZX/hms_values-zz-rZX.xml" target-dir="res/values-zz-rZX" />
+        <!--assets-->
+        <source-file src="src/android/assets/hmsrootcas.bks" target-dir="assets" />
 
         <!--hms agent code-->
         <!--com/huawei/android/hms/agent/common/handler/-->
