@@ -23,6 +23,7 @@
             <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.NoActionBar" />
             <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=$APPID"></meta-data>
             <meta-data android:name="com.huawei.hms.client.cpid" android:value="cpid=$CPID"></meta-data>
+            <!--
             <activity android:name="com.huawei.hms.activity.BridgeActivity" android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent">
                 <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent" />
             </activity>
@@ -37,7 +38,7 @@
             </activity>
             <activity android:name="com.huawei.android.hms.agent.pay.HMSPayAgentActivity" android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent">
                 <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent" />
-            </activity>
+            </activity>-->
             <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:authorities="$PACKAGENAME.hms.update.provider" android:exported="false" android:grantUriPermissions="true"></provider>
             <provider android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider" android:authorities="$PACKAGENAME.updateSdk.fileProvider" android:exported="false" android:grantUriPermissions="true">
             </provider>
