@@ -83,7 +83,7 @@
         <source-file src="src/android/res/drawable-hdpi-1208x720-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-hdpi-1208x720-v4" />
         <!--drawable-hdpi-v4-->
         <source-file src="src/android/res/drawable-hdpi-v4/hms_game_buoy_icon_normal.png" target-dir="res/drawable-hdpi-v4" />
-        <source-file src="src/android/res/drawable-hdpi-v4/hms_game_buoy_red_dot" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="src/android/res/drawable-hdpi-v4/hms_game_buoy_red_dot.png" target-dir="res/drawable-hdpi-v4" />
         <source-file src="src/android/res/drawable-hdpi-v4/hms_game_hide_float_eye_off_gray.png" target-dir="res/drawable-hdpi-v4" />
         <source-file src="src/android/res/drawable-hdpi-v4/hms_game_icon.png" target-dir="res/drawable-hdpi-v4" />
         <!--drawable-xhdpi-v4-->
