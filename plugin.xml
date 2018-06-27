@@ -118,6 +118,23 @@
         <!--com/huawei/android/hms/agent/sns/handler-->
         <source-file src="src/android/com/huawei/android/hms/agent/sns/handler/GetMsgSendIntentHandler.java" target-dir="src/com/huawei/android/hms/agent/sns/Handler/" />
         <source-file src="src/android/com/huawei/android/hms/agent/sns/handler/GetUiIntentHandler.java" target-dir="src/com/huawei/android/hms/agent/sns/Handler/" />
+        <!--com/huawei/android/hms/agent/game-->
+        <source-file src="src/android/com/huawei/android/hms/agent/game/FloatWindowApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/GameLoginSignUtil.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/GetTemperatureApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/LoginApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/RegisterHardwareCapabilityApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/SavePlayerInfoApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/UpdateGameInfoApi.java" target-dir="src/com/huawei/android/hms/agent/game/" />
+        <!--com/huawei/android/hms/agent/game/handler-->
+        <source-file src="src/android/com/huawei/android/hms/agent/game/handler/GetTemperatureHandler.java" target-dir="src/com/huawei/android/hms/agent/game/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/handler/ICheckLoginSignHandler.java" target-dir="src/com/huawei/android/hms/agent/game/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/handler/LoginHandler.java" target-dir="src/com/huawei/android/hms/agent/game/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/handler/RegisterHardwareCapabilityHandler.java" target-dir="src/com/huawei/android/hms/agent/game/handler/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/handler/SaveInfoHandler.java" target-dir="src/com/huawei/android/hms/agent/game/handler/" />
+        <!--com/huawei/android/hms/agent/game/checksignutil-->
+        <source-file src="src/android/com/huawei/android/hms/agent/game/checksignutil/Base64Util.java" target-dir="src/com/huawei/android/hms/agent/game/checksignutil/" />
+        <source-file src="src/android/com/huawei/android/hms/agent/game/checksignutil/RSAUtil.java" target-dir="src/com/huawei/android/hms/agent/game/checksignutil/" />
         <!--com/huawei/android/hms/agent/-->
         <source-file src="src/android/com/huawei/android/hms/agent/HMSAgent.java" target-dir="src/com/huawei/android/hms/agent/" />
     </platform>
