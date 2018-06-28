@@ -48,3 +48,28 @@ document.addEventListener('huaweipush.pushMsgReceived', function (event) {
     console.log(event) // event包含了你自定义的额外字段的数据
 }.bind(this), false)
 ```
+
+###尽早定义事件
+`document.addEventListener`事件要尽早定义，在调用`cordova.plugins.huaweipush.init()`之前.
+
+```html
+    <html>
+    <head>...</head>
+    <body>
+    <script>
+        document.addEventListener('huaweipush.receiveRegisterResult', function (event) {
+            console.log(event) // 设备token包含在event对像
+        }.bind(this), false);
+    
+        document.addEventListener('huaweipush.notificationOpened', function (event) {
+            console.log(event) // event包含了你自定义的额外字段的数据
+        }.bind(this), false)
+    
+        document.addEventListener('huaweipush.pushMsgReceived', function (event) {
+            console.log(event) // event包含了你自定义的额外字段的数据
+        }.bind(this), false)
+    </script>
+    <div>内容</div>
+    </body>
+    </html>
+```
