@@ -71,7 +71,7 @@
         <source-file src="src/android/lib/HMS_SDK_2.6.1.301.jar" target-dir="libs"/>
         <source-file src="src/android/CordovaHuaweiHMS.java" target-dir="src/com/waitaction/huaweipush/" />
         <source-file src="src/android/HuaweiPushReceiver.java" target-dir="src/com/waitaction/huaweipush/" />
-
+        <source-file src="src/android/UpdateApp.java" target-dir="src/com/waitaction/huaweipush/" />
         <!--res-->
         <!--drawable-->
         <source-file src="src/android/res/drawable/hms_game_buoy_hide_shape_red.xml" target-dir="res/drawable" />

@@ -7,8 +7,7 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-//import com.huawei.hms.api.HuaweiApiAvailability.OnUpdateListener;
+import com.huawei.android.hms.agent.HMSAgent;
 import com.huawei.hms.api.HuaweiApiClient;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.support.api.client.Status;
@@ -21,12 +20,10 @@ import com.huawei.hms.support.api.push.HuaweiPush;
 import com.huawei.hms.support.api.push.TokenResult;
 import com.huawei.hms.support.api.client.PendingResult;
 import com.huawei.hms.support.api.client.ResultCallback;
-
 import android.content.IntentSender;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-
 import java.io.UnsupportedEncodingException;
 import java.lang.Thread;
 import java.security.InvalidKeyException;
@@ -75,6 +72,8 @@ public class CordovaHuaweiHMS extends CordovaPlugin implements HuaweiApiClient.C
 
     public CordovaHuaweiHMS() {
         instance = this;
+
+
     }
 
     @Override
@@ -210,6 +209,7 @@ public class CordovaHuaweiHMS extends CordovaPlugin implements HuaweiApiClient.C
 
     private void init(CallbackContext callbackContext) {
         this.log("初始化hms连接");
+        HMSAgent.checkUpdate(this.cordova.getActivity(), new UpdateApp()  );
         if (huaweiApiClient != null && huaweiApiClient.isConnected()) {
 
         } else {
