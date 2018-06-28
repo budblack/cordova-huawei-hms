@@ -49,7 +49,7 @@ document.addEventListener('huaweipush.pushMsgReceived', function (event) {
 }.bind(this), false)
 ```
 
-###尽早定义事件
+### 尽早定义事件
 `document.addEventListener`事件要尽早定义，在调用`cordova.plugins.huaweipush.init()`之前.
 
 ```html
